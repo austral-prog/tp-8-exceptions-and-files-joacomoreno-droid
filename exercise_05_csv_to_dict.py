@@ -34,4 +34,23 @@ def csv_to_dict(filename):
             {"name": "Bob", "age": 25, "city": "Rosario"},
         ]
     """
-    pass  # Reemplazar con tu implementación
+    lista = []
+    with open(filename, "r") as archivo:
+        lineas = archivo.readlines()
+        if not lineas:
+            return []
+        header = lineas[0].strip().split(",")
+        for linea in lineas[1:]:
+            linea_limpea = linea.strip()
+            if linea_limpea == "":
+                continue
+            datos = linea_limpea.split(",")
+            diccfila = {}
+            for i in range(len(header)):
+                clave = header[i]
+                valor = datos[i]
+                if clave == "age":
+                    valor = int(valor)
+                diccfila[clave] = valor
+            lista.append(diccfila)
+        return lista
