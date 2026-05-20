@@ -72,7 +72,7 @@ def process_sales(data):
         process_sales({"producto1": [100.0, 150.0]})
         # imprime: "producto1: ventas totales $250.00, promedio $125.00"
     """
-        for producto, lista_montos in data.items():
+    for producto, lista_montos in data.items():
         suma = sum(lista_montos)
         cantidad = len(lista_montos)
         promedio = suma / cantidad
